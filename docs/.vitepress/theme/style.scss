@@ -1,0 +1,59 @@
+.block {
+  width: 100%;
+}
+.m-t-lg {
+  margin-top: 16px;
+}
+.m-b-lg {
+  margin-bottom: 16px;
+}
+.m-b-md {
+  margin-bottom: 12px;
+}
+.m-r-md {
+  margin-right: 12px;
+}
+.m-l-md {
+  margin-left: 12px;
+}
+.p-lg {
+  padding: 16px;
+}
+.scrollable {
+  overflow: auto;
+}
+.h-full {
+  height: 100%;
+}
+.w-200 {
+  width: 200px;
+}
+.w-full {
+  width: 100%;
+}
+
+/*Override Default Vitepress Theme*/
+
+.epp-spinner {
+  &.around-right {
+    .spinner-wrap {
+      animation: spinner-rotate var(--spinner-duration) linear infinite !important;
+    }
+  }
+
+  &.around-left {
+    .spinner-wrap {
+      animation: spinner-rotate var(--spinner-duration) linear infinite !important;
+      animation-direction: reverse !important;
+    }
+  }
+}
+
+.epp-simple-table {
+  display: table !important;
+  margin: 0 !important;
+}
+
+.epp-ripple {
+  transition: transform 0.6s var(--ripple-cubic-bezier), opacity 0.2s linear !important;
+}

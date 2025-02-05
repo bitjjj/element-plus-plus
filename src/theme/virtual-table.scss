@@ -1,0 +1,19 @@
+.epp-virtual-table {
+  .table-body:not(.no-data) {
+    display: block;
+    .expand-row {
+      td {
+        display: block;
+      }
+      .expand-icon,
+      .placeholder-icon {
+        transition: none !important;
+      }
+    }
+    .loading-row {
+      td {
+        display: block;
+      }
+    }
+  }
+}

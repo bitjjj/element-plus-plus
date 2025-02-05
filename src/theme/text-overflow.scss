@@ -1,0 +1,16 @@
+.epp-text-overflow {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+  .text-overflow-content {
+    position: relative;
+    margin: -12px;
+    padding: 12px;
+    overflow: auto;
+    max-height: 160px;
+  }
+}
+

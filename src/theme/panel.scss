@@ -1,0 +1,241 @@
+@use "sass:math";
+@use "sass:map";
+@use "config";
+
+.epp-panel {
+  --panel-radius: #{map.get(config.$conf_panel, 'radius')};
+  --panel-padding: #{map.get(config.$conf_panel, 'padding')};
+  --panel-header-height: #{map.get(config.$conf_panel, 'header-height')};
+  --panel-header-padding: var(--panel-padding);
+  --panel-body-padding: var(--panel-padding);
+  --panel-footer-padding: var(--panel-padding);
+  --panel-bg-color: #{map.get(config.$conf_panel, 'bg-color')};
+  --panel-header-bg-color: #{map.get(config.$conf_panel, 'header-bg-color')};
+  --panel-footer-bg-color: #{map.get(config.$conf_panel, 'footer-bg-color')};
+  @if map.get(config.$conf_panel, 'border-width') != false {
+    --panel-border-width: #{map.get(config.$conf_panel, 'border-width')};
+  }
+  --panel-border-color: #{map.get(config.$conf_panel, 'border-color')};
+  --panel-title-font-size: #{map.get(config.$conf_panel, 'title-font-size')};
+  --panel-title-font-color: #{map.get(config.$conf_panel, 'title-font-color')};
+  @if map.get(config.$conf_panel, 'shadow') != false {
+    --panel-shadow: #{map.get(config.$conf_panel, 'shadow')};
+  }
+  --panel-fullscreen-top: 0;
+  --panel-fullscreen-bottom: 0;
+  --panel-fullscreen-left: 0;
+  --panel-fullscreen-right: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--panel-bg-color);
+  border-radius: var(--panel-radius);
+  @if map.get(config.$conf_panel, 'border-width') != false {
+    border: var(--panel-border-width) solid var(--panel-border-color);
+  }
+  @if map.get(config.$conf_panel, 'shadow') != false {
+    box-shadow: var(--panel-shadow);
+  }
+
+  > .panel-header {
+    display: flex;
+    align-items: center;
+    min-height: var(--panel-header-height);
+    padding: 0 var(--panel-header-padding);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    flex-shrink: 0;
+    flex-grow: 0;
+    @if map.get(config.$conf_panel, 'border-width') != false {
+      border-top-right-radius: calc(var(--panel-radius) - var(--panel-border-width));
+      border-top-left-radius: calc(var(--panel-radius) - var(--panel-border-width));
+    }@else {
+      border-top-right-radius: var(--panel-radius);
+      border-top-left-radius: var(--panel-radius);
+    }
+    border-bottom: var(--panel-border-width, var(--border-width)) solid var(--panel-border-color);
+    background-color: var(--panel-header-bg-color);
+    &:only-child {
+      border: none;
+      @if map.get(config.$conf_panel, 'border-width') != false {
+        border-bottom-right-radius: calc(var(--panel-radius) - var(--panel-border-width));
+        border-bottom-left-radius: calc(var(--panel-radius) - var(--panel-border-width));
+      }@else {
+        border-bottom-right-radius: var(--panel-radius);
+        border-bottom-left-radius: var(--panel-radius);
+      }
+    }
+
+    // 底部样式
+    &.bottom {
+      border-top:  var(--panel-border-width, var(--border-width)) solid var(--panel-border-color);
+      @if map.get(config.$conf_panel, 'border-width') != false {
+        border-bottom-right-radius: calc(var(--panel-radius) - var(--panel-border-width));
+        border-bottom-left-radius: calc(var(--panel-radius) - var(--panel-border-width));
+      }@else {
+        border-bottom-right-radius: var(--panel-radius);
+        border-bottom-left-radius: var(--panel-radius);
+      }
+      border-bottom: none;
+    }
+
+    // 标题
+    .panel-title {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      font-size: var(--panel-title-font-size);
+      color: var(--panel-title-font-color);
+      gap: 4px;
+    }
+
+    // 工具条
+    .panel-header-right {
+      display: flex;
+      align-items: center;
+      flex-grow: unset;
+      flex-shrink: 0;
+      .panel-close {
+        width: 20px;
+        height: 20px;
+        color: var(--form-icon-color);
+        font-size: 20px;
+        padding: 2px;
+        margin-left: 16px;
+        transform: translateX(50%);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        flex-grow: unset;
+        border: none;
+        background-color: transparent;
+        transition: color var(--duration) var(--timing);
+        &:hover {
+          color: var(--text-secondary);
+        }
+      }
+    }
+    .panel-header-left {
+      display: flex;
+      align-items: center;
+      flex-grow: unset;
+      flex-shrink: 0;
+    }
+  }
+  > .panel-body {
+    padding: var(--panel-body-padding);
+  }
+  > .panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top:  var(--panel-border-width, var(--border-width)) solid var(--panel-border-color);
+    padding-left: var(--panel-padding);
+    padding-right: var(--panel-padding);
+    padding-top: var(--panel-footer-padding);
+    padding-bottom: var(--panel-footer-padding);
+    flex-shrink: 0;
+    flex-grow: 0;
+    @if map.get(config.$conf_panel, 'border-width') != false {
+      border-bottom-right-radius: calc(var(--panel-radius) - var(--panel-border-width));
+      border-bottom-left-radius: calc(var(--panel-radius) - var(--panel-border-width));
+    }@else {
+      border-bottom-right-radius: var(--panel-radius);
+      border-bottom-left-radius: var(--panel-radius);
+    }
+    background-color: var(--panel-footer-bg-color);
+  }
+
+  &.float-header {
+    > .panel-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+  }
+
+  &.borderless {
+    border: none;
+    > .panel-header {
+      border-bottom: none;
+      + .panel-body {
+        padding-top: 0;
+      }
+    }
+    > .panel-footer {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  &.outlineless {
+    border: none;
+  }
+
+  &.no-shadow {
+    box-shadow: none;
+  }
+
+  &.no-bg {
+    background: none;
+  }
+
+  &.fullscreen {
+    position: fixed;
+    top: var(--panel-fullscreen-top) !important;
+    left: var(--panel-fullscreen-left) !important;
+    right: var(--panel-fullscreen-right) !important;
+    bottom: var(--panel-fullscreen-bottom) !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 2000;
+    border-radius: 0;
+    > .panel-title {
+      border-radius: 0;
+    }
+    > .panel-body {
+      flex-grow: 1;
+      height: auto;
+      overflow: auto;
+    }
+  }
+
+  &.collapsed {
+    &:not(.fullscreen) {
+      min-height: var(--panel-header-height);
+      max-height: var(--panel-header-height);
+      > .panel-header {
+        border-bottom-color: transparent;
+      }
+      > .panel-body {
+        display: none;
+      }
+      > .panel-footer {
+        display: none;
+      }
+    }
+  }
+
+  &.full-body {
+    > .panel-body {
+      height: 100%;
+      padding: unset;
+      overflow: hidden;
+    }
+  }
+
+  &.is-draggable {
+    > .panel-header {
+      user-select: none;
+      cursor: move;
+    }
+  }
+}
+html.dark .epp-panel {
+  --panel-bg-color: var(--el-bg-color-overlay);
+}

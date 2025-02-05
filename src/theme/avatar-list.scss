@@ -1,0 +1,7 @@
+.epp-avatar-list {
+  --indent: 0px;
+  display: inline-flex;
+  .el-avatar {
+    margin-left: var(--indent);
+  }
+}

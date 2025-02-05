@@ -1,0 +1,60 @@
+$conf_panel: (
+  "radius": 0, // 圆角尺寸
+  "padding": 20px, // 填充尺寸
+  "header-height": 64px, // 标题栏高度
+  "bg-color": var(--el-fill-color-blank), // 背景颜色
+  "header-bg-color": transparent, // 标题栏背景颜色
+  "footer-bg-color": transparent, // 脚注背景颜色
+  "border-width": 1px, // 边框尺寸 (false将不渲染)
+  "border-color": var(--el-border-color-light), // 边框颜色
+  "title-font-size": var(--el-font-size-medium), // 文本尺寸
+  "title-font-color": var(--el-text-color-primary), // 文本颜色 (默认)
+  "shadow": false, // 阴影样式 (false将不渲染)
+) !default;
+
+$conf_table: (
+  "radius": 3px, // 圆角尺寸
+  "padding": 12px, // 外侧填充尺寸
+  "td-padding": 8px, // 单元格填充尺寸
+  "cell-padding": 8px, // 单元格填充尺寸 (左右)
+  "font-color": var(--el-text-color-regular), // 文本颜色
+  "font-size": var(--el-font-size-base), // 文本尺寸
+  "tree-indent": 1em, // 树形结构缩进尺寸
+  "border-color": var(--el-border-color), // 边框颜色
+  "striped-color": var(--el-border-color-light), // 条纹背景颜色
+  "highlight-color": var(--el-border-color-lighter), // 高亮行背景颜色
+  "list-td-bg-color": var(--el-bg-color), // 列表样式背景颜色
+  "th-height": 48px, // 表头高度
+  "th-bg-color": var(--el-fill-color-light), // 表头背景
+  "th-font-weight": var(--el-font-weight-primary), // 表头文本重量
+  "th-font-color": var(--el-text-color-regular), // 表头文本颜色
+  "td-height": 40px, // 单元格高度
+  "td-bg-color": transparent, // 单元格背景颜色
+  "td-bg-color-hover": var(--el-fill-color-light), // 单元格背景颜色 (悬停)
+  "fixed-th-bg-color": var(--el-fill-color-light), // 固定时表头背景
+  "fixed-td-bg-color": var(--el-bg-color), // 固定时表头背景
+  "fixed-shadow-left": inset 10px 0 10px -10px rgba(0, 0, 0, .15),
+  "fixed-shadow-right": inset -10px 0 10px -10px rgba(0, 0, 0, .15),
+) !default;
+
+// Tables 尺寸
+$conf_table_size: (
+  "sm":(
+    "td-height": 40px,
+    "font-size": 12px,
+    "cell-padding": 8px,
+    "radius": 1px,
+  ),
+  "md":(
+    "td-height": 48px,
+    "font-size": 14px,
+    "cell-padding": 12px,
+    "radius": 2px,
+  ),
+  "lg":(
+    "td-height": 56px,
+    "font-size": 16px,
+    "cell-padding": 16px,
+    "radius": 3px,
+  ),
+) !default;

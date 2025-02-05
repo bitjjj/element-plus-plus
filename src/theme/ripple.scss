@@ -1,0 +1,14 @@
+.epp-ripple {
+  --ripple-cubic-bezier: cubic-bezier(0.31,-0.02, 0.1, 0.89);
+  --ripple-color: currentColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 100;
+  will-change: transform, opacity;
+  pointer-events: none;
+  background-color: var(--ripple-color);
+  transition: transform 0.6s var(--ripple-cubic-bezier), opacity 0.2s linear;
+}

@@ -1,0 +1,14 @@
+.epp-banner {
+  border-radius: 0;
+  &.at-top {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &.at-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

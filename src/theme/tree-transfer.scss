@@ -1,0 +1,65 @@
+.epp-tree-transfer {
+  .transfer-panel {
+    .panel-list {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      padding-top: 0;
+      flex: 1;
+      flex-basis: auto;
+      flex-wrap: nowrap;
+      &.filterable {
+        padding-top: 0;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:hover {
+          background-color: var(--el-fill-color-light);
+          .item-close {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        .item-close {
+          margin: 0;
+          margin-right: 4px;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+    .tree-scrollbar, .checkbox-scrollbar {
+      height: calc(100% - var(--el-component-size) - 2 * 15px - 2 * var(--el-border-width));
+      .el-tree {
+        --el-tree-node-content-height: var(--el-checkbox-height, 32px);
+      }
+    }
+    &.target-panel {
+      margin-left: 30px;
+      .item {
+        width: 100%;
+        .el-checkbox__input {
+          display: none;
+        }
+        .el-checkbox__label {
+          width: 100%;
+          display: inline-flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: normal;
+        }
+      }
+    }
+    &.unfilterable {
+      .panel-list {
+        padding: 6px;
+      }
+      .tree-scrollbar, .checkbox-scrollbar {
+        height: 100%;
+      }
+    }
+  }
+}

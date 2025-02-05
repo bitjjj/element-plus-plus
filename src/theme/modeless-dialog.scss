@@ -1,0 +1,31 @@
+.epp-modeless-dialog {
+  &.epp-panel {
+    position: fixed;
+  }
+  left: 45%;
+  top: 20%;
+  min-width: 300px;
+  min-height: 144px;
+  &.collapsed {
+    &:not(.fullscreen) {
+      min-height: var(--panel-header-height);
+      max-height: var(--panel-header-height);
+    }
+  }
+  .panel-header {
+    user-select: none;
+  }
+  .panel-resizer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    opacity: 0;
+    cursor: nwse-resize;
+  }
+  &.fullscreen {
+    transform: none;
+  }
+}
