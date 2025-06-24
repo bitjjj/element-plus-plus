@@ -1,5 +1,5 @@
 import { parallel, series } from 'gulp';
-import path from 'path';
+import path from 'node:path';
 import { readFile, writeFile } from 'fs/promises';
 import glob from 'fast-glob';
 import { copy } from 'fs-extra';

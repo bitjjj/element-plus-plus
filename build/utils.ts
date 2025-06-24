@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import { dependencies, peerDependencies, devDependencies } from '../package.json';
 
 export const pkgName = 'element-plus-plus';
